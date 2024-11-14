@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Index Page</title>
+</head>
+<body>
+<div class="text-center">
+    <p>Main Page</p>
+    <div>
+        <form th:action="@{/logout}" method="post">
+            <p th:if="${session.user != null}">
+                <button type="submit">로그아웃</button>
+            </p>
+        </form>
+
+        <p th:if="${session.user == null}">
+            <a th:href="@{/login}" >로그인</a>
+        </p>
+    </div>
+    <div>
+        <p th:if="${session.user != null}">
+            <a th:href="@{/item}" >목록</a>
+        </p>
+    </div>
+</div>
+</body>
+</html>
